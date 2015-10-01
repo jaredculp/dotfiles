@@ -1,17 +1,45 @@
-alias a='ls'
-alias aliases="e ~/.dotfiles/aliases"
-alias c="cd"
-alias cl="clear"
-alias code="cd $workspace"
-alias e="$EDITOR"
-alias la="ls -al"
-alias ll="ls -l"
-alias ls="ls -G"
+#
+# Aliases for common tasks, grouped by category
+#
+
+# directories
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias u="cd .."
+
+# dotfile editing
+alias ae="$EDITOR ~/.aliases"
+alias ar="source ~/.aliases"
+alias ve="$EDITOR ~/.vimrc"
+alias ze="$EDITOR ~/.zshrc"
+alias zr="source ~/.zshrc"
+
+# git
+alias ga="git add"
+alias gc="git commit"
+alias gs="git status"
+alias gd="git diff"
+alias gf="git fetch --all"
+alias gr="git rebase"
+alias gp="git push"
+alias gco="git checkout"
+
+# java stuff
 alias mci="mvn clean install"
 alias mcisc="mvn clean -Dmaven.test.skip.exec=true -Dcheckstyle.skip=true install"
 alias mcist="mvn clean -Dmaven.test.skip.exec=true install"
 alias mdt="mvn dependency:tree"
-alias sl="ls"
-alias sp="source ~/.zshrc"
-alias u="cd .."
-alias yolo="git push origin master -f"
+
+# logs
+alias lf="less +F"
+alias tf="tail -f"
+
+# ls
+alias l="ls -lFG"
+alias la="ls -laFG"
+alias lsd="ls -lFG | grep --color=never '^d'"
+
+# ps
+alias psa="ps aux"
+alias psg="ps aux | grep "

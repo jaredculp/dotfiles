@@ -12,9 +12,7 @@ source $HOME/.opower_settings
 
 ZSH=$HOME/.oh-my-zsh
 
-#ZSH_THEME="pure"
-ZSH_THEME="robbyrussell"
-#ZSH_THEME="gianu"
+ZSH_THEME="pure"
 plugins=(git colorize themes)
 
 source $ZSH/oh-my-zsh.sh
@@ -27,3 +25,4 @@ setopt histignorEdups
 setopt listtypes
 setopt nolistbeep
 
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

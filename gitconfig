@@ -60,8 +60,7 @@
     # Automatically correct and execute mistyped commands
     autocorrect = 1
 
-[credential]
-    helper = osxkeychain
-
 [hub]
     host = github.va.opower.it
+[credential]
+	helper = osxkeychain
