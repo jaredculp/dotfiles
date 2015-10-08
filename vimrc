@@ -29,8 +29,10 @@ nnoremap <silent> - :exe "resize " . (winheight(0) * 2/3)<CR>
 
 " colors!
 syntax on                           " always use syntax highlighting
-colorscheme base16-mocha
-set background=dark
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
 
 " don't bother with powerline glyphs
 let g:airline_powerline_fonts=1
