@@ -24,6 +24,7 @@ alias gf="git fetch --all"
 alias gr="git rebase"
 alias gp="git push"
 alias gco="git checkout"
+alias gcob="git checkout -b"
 
 # java stuff
 alias mci="mvn clean install"

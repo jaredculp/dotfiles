@@ -29,7 +29,7 @@ nnoremap <silent> - :exe "resize " . (winheight(0) * 2/3)<CR>
 
 " colors!
 syntax on                           " always use syntax highlighting
-colorscheme base16-eighties
+colorscheme base16-mocha
 set background=dark
 
 " don't bother with powerline glyphs
