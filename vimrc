@@ -10,15 +10,30 @@ Plug 'chriskempson/base16-vim'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'kien/ctrlp.vim'
+Plug 'Valloric/YouCompleteMe'
+Plug 'majutsushi/tagbar'
 call plug#end()
 
 " leader
 let mapleader=" "                   " use space as leader
 inoremap jk <ESC>                   " quickly exit insert mode
 map ; :
-map <Leader>nt :NERDTreeToggle<CR>  " open a file brower buffer
 map <Leader>sh :SemanticHighlightToggle<CR>
 map <Leader>p :CtrlP<CR>
+
+" Tagbar
+autocmd VimEnter * TagbarToggle
+nmap <Leader>tt :TagbarToggle<CR>
+
+" NERDTree
+map <Leader>nt :NERDTreeToggle<CR>  " open a file brower buffer
+
+" Open a NERDTree split if vim is started with no file specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" Close vim if the only window is NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " splits
 nnoremap <Leader>h <C-w>h           " move to left split
