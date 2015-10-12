@@ -14,6 +14,7 @@ call plug#end()
 
 " leader
 let mapleader=" "                   " use space as leader
+inoremap jk <ESC>                   " quickly exit insert mode
 map ; :
 map <Leader>nt :NERDTreeToggle<CR>  " open a file brower buffer
 map <Leader>sh :SemanticHighlightToggle<CR>

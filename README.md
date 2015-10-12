@@ -13,6 +13,18 @@ Clone the repository:
 git clone http://github.com/jaredculp/dotfiles.git ~/.dotfiles
 ```
 
+Install vim-plug
+```
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
+
+Install RCM
+```
+brew tap thoughtbot/formulae
+brew install rcm
+```
+
 Install the dotfiles:
 ```
 rcup -v
