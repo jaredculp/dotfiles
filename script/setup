@@ -23,6 +23,9 @@ fi
 echo "  > Updating homebrew..."
 brew update &> /dev/null
 
+echo "  > Installing homebrew packages..."
+source $HOME/.dotfiles/brewfile.sh &> /dev/null
+
 echo "  > Pulling latest dot-files..."
 git pull &> /dev/null
 
