@@ -44,3 +44,6 @@ alias lsd="ls -lFG | grep --color=never '^d'"
 # ps
 alias psa="ps aux"
 alias psg="ps aux | grep "
+
+# tags
+alias ct="ctags -R ."
