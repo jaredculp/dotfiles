@@ -13,6 +13,7 @@ echo ""
 echo "==> Here we go..."
 cd ~
 
+echo "  > Installing homebrew..."
 if command -v brew >/dev/null 2>&1; then
   echo "    > (Skipping) Already installed."
 else
