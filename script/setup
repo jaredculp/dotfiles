@@ -1,0 +1,28 @@
+#!/bin/sh
+# Thank you: https://github.com/chrishunt/dot-files
+
+set -e
+
+echo "      _       _         __ _ _"
+echo "   __| | ___ | |_      / _(_) | ___  ___"
+echo "  / _\` |/ _ \| __|____| |_| | |/ _ \/ __|"
+echo " | (_| | (_) | ||_____|  _| | |  __/\__ \\"
+echo "  \__,_|\___/ \__|    |_| |_|_|\___||___/"
+echo ""
+
+echo "==> Here we go..."
+cd ~
+
+if command -v brew >/dev/null 2>&1; then
+  echo "    > (Skipping) Already installed."
+else
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" &> /dev/null
+fi
+
+echo "  > Updating homebrew..."
+brew update &> /dev/null
+
+echo "  > Pulling latest dot-files..."
+git pull &> /dev/null
+
+echo "==> Done with setup."

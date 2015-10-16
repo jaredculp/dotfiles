@@ -9,11 +9,14 @@ export EDITOR=vim
 export VISUAL=vim
 
 source $HOME/.aliases
-source $HOME/.opower_settings
+
+if [[ "$HOST" != "dreamingtree" ]]; then
+    source $HOME/.opower_settings
+fi
 
 ZSH=$HOME/.oh-my-zsh
 
-ZSH_THEME="pure"
+ZSH_THEME="kolo"
 plugins=(git colorize themes)
 
 source $ZSH/oh-my-zsh.sh
@@ -25,9 +28,3 @@ setopt autonamedirs
 setopt histignorEdups
 setopt listtypes
 setopt nolistbeep
-
-# base16
-# thanks: http://goo.gl/px6vVV
-if [[ -n "$PS1" ]]; then
-    eval "$(~/base16-shell/profile_helper.sh)"
-fi
