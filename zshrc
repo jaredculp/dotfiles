@@ -7,6 +7,7 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export TERM="xterm-256color"
 export EDITOR=vim
 export VISUAL=vim
+export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
 
 source $HOME/.aliases
 
