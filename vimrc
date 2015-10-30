@@ -44,7 +44,7 @@ nnoremap <silent> - :exe "resize " . (winheight(0) * 2/3)<CR>
 
 " colors!
 syntax on                           " always use syntax highlighting
-colorscheme base16-railscasts
+colorscheme dracula
 set background=dark
 
 highlight clear SignColumn
@@ -85,6 +85,7 @@ set smartcase                       " ignore case if search pattern is all lower
                                     "    case-sensitive otherwise
 set hlsearch                        " highlight search terms
 set incsearch                       " show search matches as you type
+set clipboard=unnamed               " use the system clipboard
 
 " filetype settings
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2

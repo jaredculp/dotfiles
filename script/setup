@@ -11,7 +11,6 @@ echo "  \__,_|\___/ \__|    |_| |_|_|\___||___/"
 echo ""
 
 echo "==> Here we go..."
-cd ~
 
 echo "  > Installing homebrew..."
 if command -v brew >/dev/null 2>&1; then
@@ -23,10 +22,18 @@ fi
 echo "  > Updating homebrew..."
 brew update &> /dev/null
 
-echo "  > Installing homebrew packages..."
-source $HOME/.dotfiles/brewfile.sh &> /dev/null
-
 echo "  > Pulling latest dot-files..."
-git pull &> /dev/null
+cd $HOME/.dotfiles && git pull &> /dev/null
+
+echo "  > Setting up colors..."
+echo "      > Setting up zsh..."
+cp $HOME/.dotfiles/colorschemes/dracula.zsh-theme $HOME/.oh-my-zsh/themes/
+echo "      > Setting up vim..."
+cp $HOME/.dotfiles/colorschemes/dracula.vim $HOME/.vim/colors/
+echo "  > To set up iTerm colors, run:"
+echo "  $ open ./colorschemes/Dracula.itermcolors"
+
+echo "  > To install homebrew packages, run:"
+echo "  $ ./brewfile.sh"
 
 echo "==> Done with setup."
