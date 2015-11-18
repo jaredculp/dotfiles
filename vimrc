@@ -20,6 +20,9 @@ Plug 'guns/vim-sexp'
 Plug 'tpope/vim-sexp-mappings-for-regular-people'
 call plug#end()
 
+" use old regexp engine
+set regexpengine=1
+
 " leader
 let mapleader=" "                   " use space as leader
 inoremap jk <ESC>                   " quickly exit insert mode
@@ -53,7 +56,7 @@ nnoremap <silent> - :exe "resize " . (winheight(0) * 2/3)<CR>
 
 " colors!
 syntax on                           " always use syntax highlighting
-colorscheme dracula
+colorscheme base16-railscasts
 set background=dark
 
 highlight clear SignColumn
@@ -75,6 +78,7 @@ highlight SpellBad     ctermbg=0   ctermfg=1
 let g:airline_powerline_fonts=1
 let g:airline_left_sep=''
 let g:airline_right_sep=''
+let g:airline_theme='base16'
 
 " set some defaults
 set nowrap                          " don't wrap lines
