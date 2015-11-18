@@ -11,6 +11,13 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'kien/ctrlp.vim'
 Plug 'Valloric/YouCompleteMe'
 Plug 'majutsushi/tagbar'
+Plug 'jiangmiao/auto-pairs'
+" Clojure stuff
+Plug 'guns/vim-clojure-static'
+Plug 'luochen1990/rainbow'
+Plug 'tpope/vim-fireplace'
+Plug 'guns/vim-sexp'
+Plug 'tpope/vim-sexp-mappings-for-regular-people'
 call plug#end()
 
 " leader
@@ -20,8 +27,10 @@ map ; :
 map <Leader>sh :SemanticHighlightToggle<CR>
 map <Leader>p :CtrlP<CR>
 
+" Rainbow parens
+let g:rainbow_active = 1
+
 " Tagbar
-autocmd VimEnter * TagbarToggle
 nmap <Leader>tt :TagbarToggle<CR>
 
 " NERDTree
