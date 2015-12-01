@@ -17,7 +17,7 @@ fi
 
 ZSH=$HOME/.oh-my-zsh
 
-ZSH_THEME="dracula"
+ZSH_THEME="kolo"
 plugins=(git colorize themes)
 
 source $ZSH/oh-my-zsh.sh
