@@ -19,10 +19,11 @@ if [[ "$HOST" != "dreamingtree" ]]; then
     source $HOME/.opower_settings
 fi
 
+ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="kolo"
 plugins=(git colorize themes)
 
-source $HOME/.oh-my-zsh/oh-my-zsh.sh
+source $ZSH/oh-my-zsh.sh
 
 # zsh options
 setopt autolist
