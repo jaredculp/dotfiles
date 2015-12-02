@@ -1,0 +1,9 @@
+#
+# Bash functions.
+#
+
+function say_hello() {
+    echo "Hello!"
+}
+
+# vim: filetype=sh
