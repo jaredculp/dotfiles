@@ -12,6 +12,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'Valloric/YouCompleteMe'
 Plug 'majutsushi/tagbar'
 Plug 'jiangmiao/auto-pairs'
+Plug 'morhetz/gruvbox'
 " Clojure stuff
 Plug 'guns/vim-clojure-static'
 Plug 'luochen1990/rainbow'
@@ -56,29 +57,15 @@ nnoremap <silent> - :exe "resize " . (winheight(0) * 2/3)<CR>
 
 " colors!
 syntax on                           " always use syntax highlighting
-colorscheme base16-railscasts
+let g:gruvbox_termcolors=16
+colorscheme gruvbox
 set background=dark
-
-highlight clear SignColumn
-highlight VertSplit    ctermbg=236
-highlight ColorColumn  ctermbg=237
-highlight LineNr       ctermbg=236 ctermfg=240
-highlight CursorLineNr ctermbg=236 ctermfg=240
-highlight CursorLine   ctermbg=236
-highlight StatusLineNC ctermbg=238 ctermfg=0
-highlight StatusLine   ctermbg=240 ctermfg=12
-highlight IncSearch    ctermbg=3   ctermfg=1
-highlight Search       ctermbg=1   ctermfg=3
-highlight Visual       ctermbg=3   ctermfg=0
-highlight Pmenu        ctermbg=240 ctermfg=12
-highlight PmenuSel     ctermbg=3   ctermfg=1
-highlight SpellBad     ctermbg=0   ctermfg=1
 
 " don't bother with powerline glyphs
 let g:airline_powerline_fonts=1
 let g:airline_left_sep=''
 let g:airline_right_sep=''
-let g:airline_theme='base16'
+let g:airline_theme='gruvbox'
 
 " set some defaults
 set nowrap                          " don't wrap lines

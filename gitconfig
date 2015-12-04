@@ -1,0 +1,5 @@
+[user]
+	name = Jared Culp
+	email = jared.culp@opower.com
+[credential]
+	helper = osxkeychain
