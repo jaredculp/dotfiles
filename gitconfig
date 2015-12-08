@@ -3,3 +3,5 @@
 	email = jared.culp@opower.com
 [credential]
 	helper = osxkeychain
+[hub]
+  host = github.va.opower.it

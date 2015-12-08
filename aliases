@@ -18,6 +18,7 @@ alias zr="source ~/.zshrc"
 # git
 alias ga="git add"
 alias gc="git commit"
+alias gca="git commit --amend"
 alias gs="git status"
 alias gd="git diff"
 alias gf="git fetch --all"

@@ -20,7 +20,7 @@ if [[ "$HOST" != "dreamingtree" ]]; then
 fi
 
 ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="kolo"
+ZSH_THEME="robbyrussell"
 plugins=(git colorize themes)
 
 source $ZSH/oh-my-zsh.sh
@@ -28,7 +28,6 @@ source $ZSH/oh-my-zsh.sh
 # zsh options
 setopt autolist
 setopt cdablevars
-setopt autonamedirs
 setopt histignorEdups
 setopt listtypes
 setopt nolistbeep

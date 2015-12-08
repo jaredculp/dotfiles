@@ -4,15 +4,15 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-vinegar'
 Plug 'vim-ruby/vim-ruby'
 Plug 'bling/vim-airline'
-Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/nerdcommenter'
 Plug 'kien/ctrlp.vim'
 Plug 'Valloric/YouCompleteMe'
 Plug 'majutsushi/tagbar'
-Plug 'jiangmiao/auto-pairs'
 Plug 'morhetz/gruvbox'
+Plug 'rstacruz/vim-closer'
 " Clojure stuff
 Plug 'guns/vim-clojure-static'
 Plug 'luochen1990/rainbow'
@@ -37,23 +37,15 @@ let g:rainbow_active = 1
 " Tagbar
 nmap <Leader>tt :TagbarToggle<CR>
 
-" NERDTree
-map <Leader>nt :NERDTreeToggle<CR>  " open a file brower buffer
-
-" Open a NERDTree split if vim is started with no file specified
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
-" Close vim if the only window is NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-
 " splits
+set splitbelow
+set splitright
+nnoremap <Leader>v :vsplit
+nnoremap <Leader>s :split
 nnoremap <Leader>h <C-w>h           " move to left split
 nnoremap <Leader>j <C-w>j           " move to bottom split
 nnoremap <Leader>k <C-w>k           " move to top split
 nnoremap <Leader>l <C-w>l           " move to right split
-nnoremap <silent> + :exe "resize " . (winheight(0) * 3/2)<CR>
-nnoremap <silent> - :exe "resize " . (winheight(0) * 2/3)<CR>
 
 " colors!
 syntax on                           " always use syntax highlighting
@@ -70,8 +62,8 @@ let g:airline_theme='gruvbox'
 " set some defaults
 set nowrap                          " don't wrap lines
 set expandtab                       " tabs are evil
-set tabstop=4                       " a tab is four spaces
-set shiftwidth=4                    " number of spaces to use for autoindenting
+set tabstop=2                       " a tab is four spaces
+set shiftwidth=2                    " number of spaces to use for autoindenting
 set smarttab                        " insert tabs on the start of a line according to
                                     "    shiftwidth, not tabstop
 set shiftround                      " use multiple of shiftwidth when indenting with '<' and '>'
