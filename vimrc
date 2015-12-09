@@ -6,13 +6,13 @@ Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-vinegar'
+Plug 'rking/ag.vim'
+Plug 'kien/ctrlp.vim'
 Plug 'vim-ruby/vim-ruby'
 Plug 'bling/vim-airline'
-Plug 'kien/ctrlp.vim'
 Plug 'Valloric/YouCompleteMe'
 Plug 'majutsushi/tagbar'
 Plug 'morhetz/gruvbox'
-Plug 'rstacruz/vim-closer'
 " Clojure stuff
 Plug 'guns/vim-clojure-static'
 Plug 'luochen1990/rainbow'
@@ -26,9 +26,10 @@ set regexpengine=1
 
 " leader
 let mapleader=" "                   " use space as leader
-inoremap jk <ESC>                   " quickly exit insert mode
 map ; :
-map <Leader>sh :SemanticHighlightToggle<CR>
+
+" quickly exit insert mode
+inoremap jk <ESC>
 map <Leader>p :CtrlP<CR>
 
 " Rainbow parens
@@ -52,17 +53,14 @@ syntax on                           " always use syntax highlighting
 let g:gruvbox_termcolors=16
 colorscheme gruvbox
 set background=dark
-
-" don't bother with powerline glyphs
-let g:airline_powerline_fonts=1
-let g:airline_left_sep=''
-let g:airline_right_sep=''
 let g:airline_theme='gruvbox'
 
 " set some defaults
 set nowrap                          " don't wrap lines
 set expandtab                       " tabs are evil
-set tabstop=2                       " a tab is four spaces
+set tabstop=2                       " read tab characters as two spaces
+set softtabstop=2                   " a tab is two space
+                                    "    also makes a backspace remove 2 chars
 set shiftwidth=2                    " number of spaces to use for autoindenting
 set smarttab                        " insert tabs on the start of a line according to
                                     "    shiftwidth, not tabstop
@@ -80,4 +78,5 @@ set incsearch                       " show search matches as you type
 set clipboard=unnamed               " use the system clipboard
 
 " filetype settings
-autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
+autocmd Filetype ruby setlocal colorcolumn=80
+autocmd Filetype java setlocal ts=4 sts=4 sw=4 colorcolumn=128
