@@ -13,12 +13,6 @@ Plug 'bling/vim-airline'
 Plug 'Valloric/YouCompleteMe'
 Plug 'majutsushi/tagbar'
 Plug 'morhetz/gruvbox'
-" Clojure stuff
-Plug 'guns/vim-clojure-static'
-Plug 'luochen1990/rainbow'
-Plug 'tpope/vim-fireplace'
-Plug 'guns/vim-sexp'
-Plug 'tpope/vim-sexp-mappings-for-regular-people'
 call plug#end()
 
 " use old regexp engine
@@ -27,6 +21,9 @@ set regexpengine=1
 " leader
 let mapleader=" "                   " use space as leader
 map ; :
+
+" Switch between the last two files
+nnoremap <Leader><Leader> <c-^>
 
 " quickly exit insert mode
 inoremap jk <ESC>
@@ -41,8 +38,8 @@ nmap <Leader>tt :TagbarToggle<CR>
 " splits
 set splitbelow
 set splitright
-nnoremap <Leader>v :vsplit
-nnoremap <Leader>s :split
+nnoremap <Leader>v :vsplit<CR>
+nnoremap <Leader>s :split<CR>
 nnoremap <Leader>h <C-w>h           " move to left split
 nnoremap <Leader>j <C-w>j           " move to bottom split
 nnoremap <Leader>k <C-w>k           " move to top split
@@ -75,6 +72,7 @@ set smartcase                       " ignore case if search pattern is all lower
                                     "    case-sensitive otherwise
 set hlsearch                        " highlight search terms
 set incsearch                       " show search matches as you type
+set iskeyword-=_                    " allow movement by word to include underscores
 set clipboard=unnamed               " use the system clipboard
 
 " filetype settings
