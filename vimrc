@@ -12,7 +12,7 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'bling/vim-airline'
 Plug 'Valloric/YouCompleteMe'
 Plug 'majutsushi/tagbar'
-Plug 'morhetz/gruvbox'
+Plug 'altercation/vim-colors-solarized'
 call plug#end()
 
 " use old regexp engine
@@ -47,10 +47,8 @@ nnoremap <Leader>l <C-w>l           " move to right split
 
 " colors!
 syntax on                           " always use syntax highlighting
-let g:gruvbox_termcolors=16
-colorscheme gruvbox
+colorscheme solarized
 set background=dark
-let g:airline_theme='gruvbox'
 
 " set some defaults
 set nowrap                          " don't wrap lines
