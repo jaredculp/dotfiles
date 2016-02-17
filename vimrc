@@ -1,18 +1,7 @@
 call plug#begin('~/.vim/plugged')
-Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-bundler'
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-vinegar'
-Plug 'rking/ag.vim'
-Plug 'kien/ctrlp.vim'
-Plug 'vim-ruby/vim-ruby'
-Plug 'bling/vim-airline'
-Plug 'Valloric/YouCompleteMe'
-Plug 'majutsushi/tagbar'
-Plug 'altercation/vim-colors-solarized'
+if filereadable(expand("~/.vimrc.plugs"))
+  source ~/.vimrc.plugs
+endif
 call plug#end()
 
 " use old regexp engine
@@ -32,8 +21,11 @@ map <Leader>p :CtrlP<CR>
 " Rainbow parens
 let g:rainbow_active = 1
 
-" Tagbar
+" Tags
 nmap <Leader>tt :TagbarToggle<CR>
+
+" Ag
+noremap <Leader>g :Ag<CR>
 
 " splits
 set splitbelow
@@ -49,6 +41,11 @@ nnoremap <Leader>l <C-w>l           " move to right split
 syntax on                           " always use syntax highlighting
 colorscheme solarized
 set background=dark
+
+" fonts
+set guifont=Monaco:h14
+let g:airline_left_sep=''
+let g:airline_right_sep=''
 
 " set some defaults
 set nowrap                          " don't wrap lines
