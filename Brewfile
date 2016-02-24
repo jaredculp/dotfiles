@@ -4,6 +4,7 @@ git
 irssi
 python
 rbenv
+rcm
 reattach-to-user-namespace
 ruby-build
 tmux

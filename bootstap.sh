@@ -24,6 +24,9 @@ brew update
 echo "  > Pulling latest dot-files..."
 cd $HOME/.dotfiles && git pull &> /dev/null
 
+echo "  > Installing taps..."
+brew tap $(cat Tapfile|grep -v "#") 2> /dev/null
+
 echo "  > Installing brews..."
 brew install $(cat Brewfile|grep -v "#") 2> /dev/null
 
@@ -43,5 +46,8 @@ curl --silent -fLo ~/.vim/autoload/plug.vim --create-dirs \
       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 echo "    > Installing plugs..."
 vim +PlugInstall +qall
+
+echo "  > Installing dotfiles..."
+rcup -v
 
 echo "==> Done with setup."
