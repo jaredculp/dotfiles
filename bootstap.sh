@@ -25,13 +25,23 @@ echo "  > Pulling latest dot-files..."
 cd $HOME/.dotfiles && git pull &> /dev/null
 
 echo "  > Installing brews..."
-brew install $(cat Brewfile|grep -v "#")
+brew install $(cat Brewfile|grep -v "#") 2> /dev/null
 
 echo "  > Installing casks..."
-brew cask install $(cat Caskfile|grep -v "#")
+brew cask install $(cat Caskfile|grep -v "#") 2> /dev/null
 
 echo "  > Setting up fish shell..."
-echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
-chsh -s /usr/local/bin/fish
+if [ $SHELL == '/usr/local/bin/fish' ]; then
+  echo "    > (Skipping) Already using fish."
+else
+  echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
+  chsh -s /usr/local/bin/fish
+fi
+
+echo "  > Setting up vim plugged..."
+curl --silent -fLo ~/.vim/autoload/plug.vim --create-dirs \
+      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+echo "    > Installing plugs..."
+vim +PlugInstall +qall
 
 echo "==> Done with setup."

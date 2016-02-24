@@ -39,7 +39,7 @@ nnoremap <Leader>l <C-w>l           " move to right split
 
 " colors!
 syntax on                           " always use syntax highlighting
-colorscheme solarized
+colorscheme base16-default
 set background=dark
 
 " fonts
