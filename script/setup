@@ -1,14 +1,13 @@
-#!/bin/sh
+#!/usr/bin/env bash
 # Thank you: https://github.com/chrishunt/dot-files
 
 set -e
 
-echo "      _       _         __ _ _"
-echo "   __| | ___ | |_      / _(_) | ___  ___"
-echo "  / _\` |/ _ \| __|____| |_| | |/ _ \/ __|"
-echo " | (_| | (_) | ||_____|  _| | |  __/\__ \\"
-echo "  \__,_|\___/ \__|    |_| |_|_|\___||___/"
-echo ""
+# Ask for the administrator password upfront
+sudo -v
+
+# Keep-alive: update existing `sudo` time stamp until finished
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 echo "==> Here we go..."
 
@@ -20,20 +19,19 @@ else
 fi
 
 echo "  > Updating homebrew..."
-brew update &> /dev/null
+brew update
 
 echo "  > Pulling latest dot-files..."
 cd $HOME/.dotfiles && git pull &> /dev/null
 
-echo "  > Setting up colors..."
-echo "      > Setting up zsh..."
-cp $HOME/.dotfiles/colorschemes/dracula.zsh-theme $HOME/.oh-my-zsh/themes/
-echo "      > Setting up vim..."
-cp $HOME/.dotfiles/colorschemes/dracula.vim $HOME/.vim/colors/
-echo "  > To set up iTerm colors, run:"
-echo "  $ open ./colorschemes/Dracula.itermcolors"
+echo "  > Installing brews..."
+brew install $(cat Brewfile|grep -v "#")
 
-echo "  > To install homebrew packages, run:"
-echo "  $ ./brewfile.sh"
+echo "  > Installing casks..."
+brew cask install $(cat Caskfile|grep -v "#")
+
+echo "  > Setting up fish shell..."
+echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
+chsh -s /usr/local/bin/fish
 
 echo "==> Done with setup."
