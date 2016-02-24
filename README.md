@@ -1,6 +1,6 @@
 # dotfiles
 
-These are my dotfiles, because there's no place like `$HOME`.
+These are my dotfiles, because there's no place like `$HOME` 🏠.
 
 I use:
 * [rcm](https://github.com/thoughtbot/rcm) to manage symlinks
