@@ -1,7 +1,49 @@
 [user]
 	name = Jared Culp
 	email = jared.culp@opower.com
+
 [credential]
 	helper = osxkeychain
+
+[core]
+  editor = vim
+
+[push]
+  default = simple
+
+[rebase]
+  autosquash = true
+
+[alias]
+  a = add
+  aa = add .
+  b = branch
+  c = commit
+  cf = commit --fixup
+  cfh = commit --fixup HEAD
+  cm = commit -m
+  cma = commit --amend
+  co = checkout
+  cb = checkout -b
+  cp = cherry-pick
+  cpa = cherry-pick --abort
+  cpc = cherry-pick --continue
+  d = diff
+  fa = fetch --all --tags
+  l = log --oneline --decorate
+  pr = pull-request
+  rb = rebase -i
+  rbc = rebase --continue
+  rba = rebase --abort
+  s = status
+  st = stash
+  stp = stash pop
+
 [hub]
   host = github.va.opower.it
+
+[url "git@github.com:"]
+  insteadOf = https://github.com/
+
+[url "git@github.va.opower.it"]
+  insteadOf = https://github.va.opower.it/
