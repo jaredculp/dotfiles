@@ -39,7 +39,8 @@ nnoremap <Leader>l <C-w>l           " move to right split
 
 " colors!
 syntax on                           " always use syntax highlighting
-colorscheme base16-default
+let base16colorspace=256
+colorscheme base16-ocean
 set background=dark
 
 " fonts
