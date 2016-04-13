@@ -8,6 +8,7 @@ call plug#end()
 " leader
 let mapleader=" "                   " use space as leader
 map ; :
+nnoremap <leader>p :CtrlP<CR>
 
 " colors!
 let base16colorspace=256
@@ -47,15 +48,4 @@ set splitright                      " open new windows to right of current
 
 set ttyfast                         " faster redrawing
 set lazyredraw                      " only redraw when necessary
-
-" put all temporary files under the same directory.
-" https://github.com/mhinz/vim-galore#handling-backup-swap-undo-and-viminfo-files
-set backup
-set backupdir   =$HOME/.vim/files/backup/
-set backupext   =-vimbackup
-set backupskip  =
-set directory   =$HOME/.vim/files/swap//
-set updatecount =100
-set undofile
-set undodir     =$HOME/.vim/files/undo/
-set viminfo     ='100,n$HOME/.vim/files/info/viminfo
+set wildignore+=*/target/*
