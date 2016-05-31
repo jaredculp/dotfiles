@@ -11,14 +11,19 @@ map ; :
 nnoremap <leader>p :CtrlP<CR>
 
 " colors!
-let base16colorspace=256
-colorscheme base16-ocean
+color Dracula
 set background=dark
 
 " fonts
 set guifont=Monaco:h14
 let g:airline_left_sep=''
 let g:airline_right_sep=''
+
+" splits
+nnoremap <Leader>j <C-W><C-J>
+nnoremap <Leader>k <C-W><C-K>
+nnoremap <Leader>l <C-W><C-L>
+nnoremap <Leader>h <C-W><C-H>
 
 " configuration
 filetype plugin indent on           " load plugins according to filetype
@@ -42,9 +47,6 @@ set hlsearch                        " highlight search terms
 set incsearch                       " show search matches as you type
 set regexpengine=1                  " use old regexp engine
 set clipboard=unnamed               " use the system clipboard
-
-set splitbelow                      " open new windows below current
-set splitright                      " open new windows to right of current
 
 set ttyfast                         " faster redrawing
 set lazyredraw                      " only redraw when necessary
