@@ -3,51 +3,57 @@
 
 set -e
 
-# Ask for the administrator password upfront
-sudo -v
+function ok() {
+  echo "$(tput setaf 2) $@ $(tput sgr0)"
+}
 
-# Keep-alive: update existing `sudo` time stamp until finished
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+function warn() {
+  echo "$(tput setaf 3) $@ $(tput sgr0)"
+}
 
-echo "==> Here we go..."
+ok "Here we go!"
 
-echo "  > Installing homebrew..."
-if command -v brew >/dev/null 2>&1; then
-  echo "    > (Skipping) Already installed."
-else
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" &> /dev/null
-fi
-
-echo "  > Updating homebrew..."
-brew update
-
-echo "  > Pulling latest dot-files..."
+ok "Pulling latest dot-files..."
 cd $HOME/.dotfiles && git pull &> /dev/null
 
-echo "  > Installing taps..."
-brew tap $(cat Tapfile|grep -v "#") 2> /dev/null
+ok "Installing dotfiles..."
+stow fish
+stow git
+stow tmux
+stow vim
 
-echo "  > Installing brews..."
-brew install $(cat Brewfile|grep -v "#") 2> /dev/null
-
-echo "  > Installing casks..."
-brew cask install $(cat Caskfile|grep -v "#") 2> /dev/null
-
-echo "  > Setting up fish shell..."
-if [ $SHELL == '/usr/local/bin/fish' ]; then
-  echo "    > (Skipping) Already using fish."
+ok "Installing homebrew..."
+if command -v brew >/dev/null 2>&1; then
+  warn "(Skipping) Already installed."
 else
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" &> /dev/null
+fi
+
+# ok "Updating homebrew..."
+# brew update &> /dev/null
+
+ok "Setting up vim plugged..."
+curl --silent -fLo ~/.vim/autoload/plug.vim --create-dirs \
+      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim &> /dev/null
+ok "Installing plugs..."
+vim +PlugInstall +qall
+
+ok "Setting up fish shell..."
+if [ $SHELL == '/usr/local/bin/fish' ]; then
+  warn "(Skipping) Already using fish."
+else
+  sudo -v
   echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
   chsh -s /usr/local/bin/fish
 fi
 
-echo "  > Setting up vim plugged..."
-curl --silent -fLo ~/.vim/autoload/plug.vim --create-dirs \
-      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-echo "    > Installing plugs..."
-vim +PlugInstall +qall
+ok "Installing fisherman..."
+if [ ! -f "$HOME/.config/fish/functions/fisher.fish" ]; then
+  curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
+else
+  warn "(Skipping) Already fishing with fisherman."
+fi
+fish
+fisher
 
-echo "  > Installing dotfiles..."
-rcup -v
-
-echo "==> Done with setup."
+ok "Done with setup!"
