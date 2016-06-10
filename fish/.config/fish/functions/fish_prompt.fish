@@ -1,1 +1,0 @@
-/Users/jared.culp/.config/fisherman/mono/fish_prompt.fish

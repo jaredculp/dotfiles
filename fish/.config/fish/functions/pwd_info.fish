@@ -1,1 +1,0 @@
-/Users/jared.culp/.config/fisherman/pwd_info/pwd_info.fish

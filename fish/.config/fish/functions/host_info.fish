@@ -1,1 +1,0 @@
-/Users/jared.culp/.config/fisherman/host_info/host_info.fish
