@@ -1,9 +1,12 @@
 [user]
-	name = Jared Culp
-	email = jared.culp@opower.com
+  name = Jared Culp
+  email = jared.culp@opower.com
 
 [credential]
-	helper = osxkeychain
+  helper = osxkeychain
+
+[commit]
+  verbose = true
 
 [core]
   editor = vim

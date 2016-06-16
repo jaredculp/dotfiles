@@ -11,7 +11,6 @@ map ; :
 nnoremap <leader>p :CtrlP<CR>
 
 " colors!
-color Dracula
 set background=dark
 
 " fonts
