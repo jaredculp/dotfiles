@@ -17,10 +17,10 @@ ok "Pulling latest dot-files..."
 cd $HOME/.dotfiles && git pull &> /dev/null
 
 ok "Installing dotfiles..."
-stow fish
-stow git
-stow tmux
-stow vim
+stow --adopt -t ~ fish
+stow --adopt -t ~ git
+stow --adopt -t ~ tmux
+stow --adopt -t ~ vim
 
 ok "Installing homebrew..."
 if command -v brew >/dev/null 2>&1; then
@@ -47,13 +47,12 @@ else
   chsh -s /usr/local/bin/fish
 fi
 
-ok "Installing fisherman..."
-if [ ! -f "$HOME/.config/fish/functions/fisher.fish" ]; then
-  curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
+ok "Installing fin..."
+if [ ! -f "$HOME/.config/fish/functions/fin.fish" ]; then
+  curl --silent -Lo ~/.config/fish/functions/fin.fish --create-dirs git.io/fin
 else
-  warn "(Skipping) Already fishing with fisherman."
+  warn "(Skipping) Already fishing with fin."
 fi
-fish
-fisher
+fish -c fin
 
 ok "Done with setup!"
