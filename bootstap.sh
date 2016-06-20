@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# Thank you: https://github.com/chrishunt/dot-files
 
 set -e
 
