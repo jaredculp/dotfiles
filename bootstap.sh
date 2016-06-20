@@ -11,16 +11,21 @@ function warn() {
   echo "$(tput setaf 3) $@ $(tput sgr0)"
 }
 
+function stow_it() {
+  ok "Stowing $1..."
+  stow --adopt -t ~ "$1"
+}
+
 ok "Here we go!"
 
 ok "Pulling latest dot-files..."
 cd $HOME/.dotfiles && git pull &> /dev/null
 
 ok "Installing dotfiles..."
-stow --adopt -t ~ fish
-stow --adopt -t ~ git
-stow --adopt -t ~ tmux
-stow --adopt -t ~ vim
+stow_it "fish"
+stow_it "git"
+stow_it "tmux"
+stow_it "vim"
 
 ok "Installing homebrew..."
 if command -v brew >/dev/null 2>&1; then
