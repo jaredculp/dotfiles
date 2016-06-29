@@ -39,9 +39,11 @@
   rb = rebase -i
   rbc = rebase --continue
   rba = rebase --abort
+  rp = remote prune origin
   s = status
   st = stash
   stp = stash pop
+  stc = stash clear
 
 [hub]
   host = github.va.opower.it
