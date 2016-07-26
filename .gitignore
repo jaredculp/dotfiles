@@ -3,3 +3,9 @@ fishd.*
 completions/
 conf.d/
 functions/
+mpd.db
+mpd.log
+mpd.pid
+mpdstate
+playlists/
+error.log

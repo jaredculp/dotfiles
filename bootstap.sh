@@ -25,6 +25,14 @@ stow_it "fish"
 stow_it "git"
 stow_it "tmux"
 stow_it "vim"
+stow_it "mpd"
+stow_it "ncmpcpp"
+
+ok "Setting up mpd..."
+if [ ! -d '~/.mpd' ]; then
+  mkdir -p ~/.mpd/playlists
+  touch ~/.mpd/{mpd.conf,mpd.db,mpd.log,mpd.pid,mpdstate}
+fi
 
 ok "Installing homebrew..."
 if command -v brew >/dev/null 2>&1; then
