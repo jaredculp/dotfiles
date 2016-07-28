@@ -17,6 +17,11 @@ function stow_it() {
 
 ok "Here we go!"
 
+ok "Setting up colors..."
+if [ ! -d '~/.base16-shell' ]; then
+  git clone https://github.com/chriskempson/base16-shell ~/.base16-shell
+fi
+
 ok "Pulling latest dot-files..."
 cd $HOME/.dotfiles && git pull &> /dev/null
 
