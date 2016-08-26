@@ -47,6 +47,12 @@ fi
 ok "Pulling latest dot-files..."
 cd $HOME/.dotfiles && git pull &> /dev/null
 
+ok "Installing taps..."
+tap_it "homebrew/services"
+tap_it "caskroom/cask"
+tap_it "homebrew/versions"
+tap_it "caskroom/versions"
+
 ok "Installing brews..."
 brew_it "stow"
 brew_it "fish"
@@ -55,15 +61,12 @@ brew_it "reattach-to-user-namespace"
 brew_it "vim --override-system-vi"
 brew_it "coreutils"
 brew_it "moreutils"
+brew_it "mysql56"
 brew_it "the_silver_searcher"
 brew_it "git"
 brew_it "rbenv"
 brew_it "mpd"
 brew_it "ncmpcpp"
-
-ok "Installing taps..."
-tap_it "homebrew/services"
-tap_it "caskroom/cask"
 
 ok "Installing casks..."
 cask_it "1password"
