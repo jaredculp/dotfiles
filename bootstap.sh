@@ -56,7 +56,6 @@ tap_it "caskroom/versions"
 ok "Installing brews..."
 brew_it "bash"
 brew_it "stow"
-brew_it "fish"
 brew_it "tmux"
 brew_it "reattach-to-user-namespace"
 brew_it "vim --override-system-vi"
@@ -104,7 +103,7 @@ curl --silent -fLo ~/.vim/autoload/plug.vim --create-dirs \
 ok "Installing plugs..."
 vim +PlugInstall +qall
 
-ok "Setting up fish shell..."
+ok "Setting up bash shell..."
 if [ $SHELL == '/usr/local/bin/bash' ]; then
   warn "(Skipping) Already using bash."
 else
