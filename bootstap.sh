@@ -54,6 +54,7 @@ tap_it "homebrew/versions"
 tap_it "caskroom/versions"
 
 ok "Installing brews..."
+brew_it "bash"
 brew_it "stow"
 brew_it "fish"
 brew_it "tmux"
@@ -104,20 +105,12 @@ ok "Installing plugs..."
 vim +PlugInstall +qall
 
 ok "Setting up fish shell..."
-if [ $SHELL == '/usr/local/bin/fish' ]; then
-  warn "(Skipping) Already using fish."
+if [ $SHELL == '/usr/local/bin/bash' ]; then
+  warn "(Skipping) Already using bash."
 else
   sudo -v
-  echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
-  chsh -s /usr/local/bin/fish
+  echo "/usr/local/bin/bash" | sudo tee -a /etc/shells
+  chsh -s /usr/local/bin/bash
 fi
-
-ok "Installing fin..."
-if [ ! -f "$HOME/.config/fish/functions/fin.fish" ]; then
-  curl --silent -Lo ~/.config/fish/functions/fin.fish --create-dirs git.io/fin
-else
-  warn "(Skipping) Already fishing with fin."
-fi
-fish -c fin
 
 ok "Done with setup!"
