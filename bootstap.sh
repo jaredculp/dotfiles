@@ -85,7 +85,7 @@ cask_it "sourcetree"
 cask_it "spectacle"
 
 ok "Installing dotfiles..."
-stow_it "fish"
+stow_it "bash"
 stow_it "git"
 stow_it "tmux"
 stow_it "vim"
