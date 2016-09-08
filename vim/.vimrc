@@ -1,8 +1,14 @@
 " plugins
 call plug#begin('~/.vim/plugged')
-if filereadable(expand("~/.vimrc.plugs"))
-  source ~/.vimrc.plugs
-endif
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-vinegar'
+Plug 'rking/ag.vim'
+Plug 'kien/ctrlp.vim'
+Plug 'itchyny/lightline.vim'
 call plug#end()
 
 " leader
