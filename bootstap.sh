@@ -55,6 +55,7 @@ tap_it "caskroom/versions"
 
 ok "Installing brews..."
 brew_it "bash"
+brew_it "bash-completions"
 brew_it "stow"
 brew_it "tmux"
 brew_it "reattach-to-user-namespace"
@@ -67,6 +68,8 @@ brew_it "git"
 brew_it "rbenv"
 brew_it "mpd"
 brew_it "ncmpcpp"
+brew_it "zsh"
+brew_it "zsh-completions"
 
 ok "Installing casks..."
 cask_it "1password"
@@ -103,13 +106,20 @@ curl --silent -fLo ~/.vim/autoload/plug.vim --create-dirs \
 ok "Installing plugs..."
 vim +PlugInstall +qall
 
-ok "Setting up bash shell..."
-if [ $SHELL == '/usr/local/bin/bash' ]; then
-  warn "(Skipping) Already using bash."
+ok "Setting up zsh..."
+if [ $SHELL == '/usr/local/bin/zsh' ]; then
+  warn "(Skipping) Already using zsh."
 else
   sudo -v
-  echo "/usr/local/bin/bash" | sudo tee -a /etc/shells
-  chsh -s /usr/local/bin/bash
+  echo "/usr/local/bin/zsh" | sudo tee -a /etc/shells
+  chsh -s /usr/local/bin/zsh
+fi
+
+ok "Setting up zprezto..."
+if [ -f "$HOME/.zprezto" ]; then
+  warn "(Skipping) Already using zprezto."
+else
+  git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 fi
 
 ok "Done with setup!"
