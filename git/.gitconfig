@@ -23,7 +23,6 @@
   aa = add .
   b = branch
   c = commit
-  cf = commit --fixup
   cfh = commit --fixup HEAD
   cm = commit -m
   cma = commit --amend
@@ -35,6 +34,8 @@
   d = diff
   fa = fetch --all --tags
   l = log --graph --oneline --decorate
+  pf = push --force-with-lease
+  po = pull origin master
   pr = pull-request
   rb = rebase -i
   rbc = rebase --continue
