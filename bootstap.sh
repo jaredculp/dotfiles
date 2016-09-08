@@ -115,11 +115,8 @@ else
   chsh -s /usr/local/bin/zsh
 fi
 
-ok "Setting up zprezto..."
-if [ -f "$HOME/.zprezto" ]; then
-  warn "(Skipping) Already using zprezto."
-else
-  git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+ok "Setting up oh-my-zsh..."
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 fi
 
 ok "Done with setup!"
