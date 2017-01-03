@@ -9,6 +9,7 @@ Plug 'tpope/vim-vinegar'
 Plug 'rking/ag.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'itchyny/lightline.vim'
+Plug 'morhetz/gruvbox'
 call plug#end()
 
 " leader
@@ -18,6 +19,9 @@ nnoremap <leader>p :CtrlP<CR>
 
 " colors!
 set background=dark
+colorscheme gruvbox
+let g:lightline = {}
+let g:lightline.colorscheme = 'gruvbox'
 
 " fonts
 set guifont=Monaco:h14
