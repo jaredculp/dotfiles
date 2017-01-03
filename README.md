@@ -3,9 +3,9 @@
 These are my dotfiles, because there's no place like `$HOME`.
 
 I use:
-* [stow](https://github.com/thoughtbot/rcm) to manage symlinks
+* [stow](https://www.gnu.org/software/stow/) to manage symlinks
 * [vim](https://vim.org) as my $EDITOR
-* [fish](https://fishshell.com) as my $TERM
+* [zsh](https://zsh.org) with [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) as my $TERM
 
 Clone the repository:
 ```
