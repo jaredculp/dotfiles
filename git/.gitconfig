@@ -42,6 +42,7 @@
   rba = rebase --abort
   rp = remote prune origin
   s = status
+  ss = status -s
   st = stash
   stp = stash pop
   stc = stash clear
