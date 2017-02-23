@@ -3,34 +3,56 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-endwise'
+
+Plug 'xolox/vim-easytags'
+Plug 'xolox/vim-misc'
+Plug 'majutsushi/tagbar'
 Plug 'rking/ag.vim'
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
+
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'raimondi/delimitmate'
+
 Plug 'itchyny/lightline.vim'
 Plug 'morhetz/gruvbox'
+Plug 'edkolev/tmuxline.vim'
 call plug#end()
 
 " leader
 let mapleader=" "                   " use space as leader
 map ; :
+imap jk <Esc>
 nnoremap <leader>p :CtrlP<CR>
 
 " colors!
 set background=dark
 colorscheme gruvbox
-let g:lightline = {}
-let g:lightline.colorscheme = 'gruvbox'
+let g:lightline = {'colorscheme': 'gruvbox'}
 
 " fonts
-set guifont=Monaco:h14
+set guifont=iosevka:h18
+set guioptions-=r
 
 " splits
 nnoremap <Leader>j <C-W><C-J>
 nnoremap <Leader>k <C-W><C-K>
 nnoremap <Leader>l <C-W><C-L>
 nnoremap <Leader>h <C-W><C-H>
+
+" tags
+set tags=./tags;,~/.tags
+let g:easytag_async = 1
+let g:easytag_dynamic_files = 2     " look for project-specific tags files
+nmap <silent> <Leader>b :TagbarToggle<CR>
+
+" omni completion
+inoremap <silent> ,o <C-x><C-o>
+
+" whitespace
+autocmd BufEnter * EnableStripWhitespaceOnSave
 
 " configuration
 filetype plugin indent on           " load plugins according to filetype
