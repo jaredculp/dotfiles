@@ -12,8 +12,11 @@
   editor = vim
   excludesfile = ~/.gitignore_global
 
+[branch]
+  autosetupmerge = true
+
 [push]
-  default = simple
+  default = upstream
 
 [rebase]
   autosquash = true
@@ -41,6 +44,7 @@
   rbc = rebase --continue
   rba = rebase --abort
   rp = remote prune origin
+  rv = remote -v
   s = status
   ss = status -s
   st = stash
@@ -52,6 +56,3 @@
 
 [url "git@github.com:"]
   insteadOf = https://github.com/
-
-[url "git@github.va.opower.it:"]
-  insteadOf = https://github.va.opower.it/

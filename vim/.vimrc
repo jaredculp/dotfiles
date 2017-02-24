@@ -7,9 +7,6 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-endwise'
 
-Plug 'xolox/vim-easytags'
-Plug 'xolox/vim-misc'
-Plug 'majutsushi/tagbar'
 Plug 'rking/ag.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 
@@ -18,7 +15,6 @@ Plug 'raimondi/delimitmate'
 
 Plug 'itchyny/lightline.vim'
 Plug 'morhetz/gruvbox'
-Plug 'edkolev/tmuxline.vim'
 call plug#end()
 
 " leader
@@ -41,15 +37,6 @@ nnoremap <Leader>j <C-W><C-J>
 nnoremap <Leader>k <C-W><C-K>
 nnoremap <Leader>l <C-W><C-L>
 nnoremap <Leader>h <C-W><C-H>
-
-" tags
-set tags=./tags;,~/.tags
-let g:easytag_async = 1
-let g:easytag_dynamic_files = 2     " look for project-specific tags files
-nmap <silent> <Leader>b :TagbarToggle<CR>
-
-" omni completion
-inoremap <silent> ,o <C-x><C-o>
 
 " whitespace
 autocmd BufEnter * EnableStripWhitespaceOnSave
