@@ -70,6 +70,7 @@ set lazyredraw          " Wait to redraw
 
 " ========== colors ==========
 set background=light
+set termguicolors
 colorscheme gruvbox
 let g:lightline = {'colorscheme': 'gruvbox'}
 
