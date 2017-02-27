@@ -35,6 +35,9 @@ export EDITOR="vim"
 
 sz() { source $HOME/.zshrc }
 
+# ========== bindings ==========
+bindkey '^R' history-incremental-search-backward
+
 # ========== history ==========
 if [ -z "$HISTFILE" ]; then
   HISTFILE=$HOME/.zsh_history
