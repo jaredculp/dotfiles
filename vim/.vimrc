@@ -1,11 +1,11 @@
-" plugins
+" ========== plugins ==========
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-vinegar'
-Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-dispatch'
 
 Plug 'rking/ag.vim'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -15,55 +15,113 @@ Plug 'raimondi/delimitmate'
 
 Plug 'itchyny/lightline.vim'
 Plug 'morhetz/gruvbox'
+
+Plug 'SirVer/ultisnips'
+Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
+Plug 'AndrewRadev/splitjoin.vim'
 call plug#end()
 
-" leader
-let mapleader=" "                   " use space as leader
-map ; :
-imap jk <Esc>
-nnoremap <leader>p :CtrlP<CR>
+" ========== config ==========
+set nocompatible
+filetype off
+filetype plugin indent on
 
-" colors!
-set background=dark
+set ttyfast
+set ttymouse=xterm2
+set ttyscroll=3
+
+set laststatus=2
+set encoding=utf-8              " Set default encoding to UTF-8
+set autoread                    " Automatically reread changed files without asking me anything
+set autoindent
+set backspace=indent,eol,start  " Makes backspace key more powerful.
+set incsearch                   " Shows the match while typing
+set hlsearch                    " Highlight found searches
+set mouse=a
+
+set noerrorbells             " No beeps
+set number                   " Show line numbers
+set showcmd                  " Show me what I'm typing
+set noswapfile               " Don't use swapfile
+set nobackup                 " Don't create annoying backup files
+set splitright               " Split vertical windows right to the current windows
+set splitbelow               " Split horizontal windows below to the current windows
+set autowrite                " Automatically save before :next, :make etc.
+set hidden
+set fileformats=unix,dos,mac " Prefer Unix over Windows over OS 9 formats
+set noshowmatch              " Do not show matching brackets by flickering
+set noshowmode               " We show the mode with airline or lightline
+set ignorecase               " Search case insensitive...
+set smartcase                " ... but not it begins with upper case
+set completeopt=menu,menuone
+set nocursorcolumn           " speed up syntax highlighting
+set nocursorline
+set updatetime=400
+
+set pumheight=10             " Completion window max size
+
+"http://stackoverflow.com/questions/20186975/vim-mac-how-to-copy-to-clipboard-without-pbcopy
+set clipboard^=unnamed
+set clipboard^=unnamedplus
+
+set viminfo='200
+
+set lazyredraw          " Wait to redraw
+
+" ========== colors ==========
+set background=light
 colorscheme gruvbox
 let g:lightline = {'colorscheme': 'gruvbox'}
 
-" fonts
-set guifont=iosevka:h18
-set guioptions-=r
+" ========== leader ==========
+let mapleader = ","
+
+" quickfix
+map <C-n> :cn<CR>
+map <C-m> :cp<CR>
+nnoremap <leader>a :cclose<CR>
+
+" fast saving
+nnoremap <leader>w :w!<cr>
+nnoremap <silent> <leader>q :q!<CR>
 
 " splits
-nnoremap <Leader>j <C-W><C-J>
-nnoremap <Leader>k <C-W><C-K>
-nnoremap <Leader>l <C-W><C-L>
-nnoremap <Leader>h <C-W><C-H>
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
 
-" whitespace
-autocmd BufEnter * EnableStripWhitespaceOnSave
+" quickly exit insert mode
+imap jk <Esc>
 
-" configuration
-filetype plugin indent on           " load plugins according to filetype
-syntax on                           " enable syntax highlighting
+" stupid q: window
+map q: :q
 
-set expandtab                       " tabs are evil
-set tabstop=2                       " read tab characters as two spaces
-set softtabstop=2                   " a tab is two space
-set shiftwidth=2                    " >> indents by 2 spaces
-set shiftround                      " >> indents to next multiple of shiftwidth
-set autoindent                      " indent according to previous line
+" ========== vim-go ==========
+let g:go_fmt_command = "goimports"
 
-set nowrap                          " don't wrap lines
-set number                          " always show line numbers
-set showmatch                       " set show matching parenthesis
-set cursorline                      " highlight current line
+autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
 
-set ignorecase                      " ignore case when searching
-set smartcase                       " ignore case if search pattern is all lowercase
-set hlsearch                        " highlight search terms
-set incsearch                       " show search matches as you type
-set regexpengine=1                  " use old regexp engine
-set clipboard=unnamed               " use the system clipboard
+autocmd FileType go nmap <leader>r  <Plug>(go-run)
+autocmd FileType go nmap <leader>t  <Plug>(go-test)
 
-set ttyfast                         " faster redrawing
-set lazyredraw                      " only redraw when necessary
-set wildignore+=*/target/*
+" run :GoBuild or :GoTestCompile based on the go file
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#cmd#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
+
+autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+autocmd FileType go nmap <Leader>i <Plug>(go-info)
+let g:go_auto_type_info = 1
+
+" ========== delimitMate ==========
+let g:delimitMate_expand_cr = 1
+let g:delimitMate_expand_space = 1
+
+" vim: sw=2 sw=2 et

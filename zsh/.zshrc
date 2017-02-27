@@ -20,6 +20,11 @@ zplug load
 export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 
+export GOPATH="$HOME/go"
+export GOBIN="$HOME/go/bin"
+export PATH="$GOBIN:$PATH"
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
+
 # ========== colors ==========
 autoload -U colors
 export CLICOLOR=1
