@@ -72,7 +72,33 @@ set lazyredraw          " Wait to redraw
 set background=light
 set termguicolors
 colorscheme gruvbox
-let g:lightline = {'colorscheme': 'gruvbox'}
+let g:lightline = {
+  \ 'colorscheme': 'gruvbox',
+  \ 'active': {
+  \   'left': [ [ 'mode', 'paste' ],
+  \             [ 'fugitive', 'filename' ] ]
+  \ },
+  \ 'component_function': {
+  \   'modified': 'LightLineModified',
+  \   'fugitive': 'LightLineFugitive'
+  \ }
+  \ }
+
+function! LightLineModified()
+  if &filetype == "help"
+    return ""
+  elseif &modified
+    return "+"
+  elseif &modifiable
+    return ""
+  else
+    return ""
+  endif
+endfunction
+
+function! LightLineFugitive()
+  return exists('*fugitive#head') ? fugitive#head() : ''
+endfunction
 
 " ========== leader ==========
 let mapleader = ","
@@ -102,6 +128,7 @@ map q: :q
 let g:go_fmt_command = "goimports"
 
 autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
+autocmd BufNewFile,BufRead *.rb setlocal expandtab tabstop=2 shiftwidth=2
 
 autocmd FileType go nmap <leader>r  <Plug>(go-run)
 autocmd FileType go nmap <leader>t  <Plug>(go-test)
