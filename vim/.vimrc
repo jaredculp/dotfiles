@@ -17,13 +17,13 @@ Plug 'itchyny/lightline.vim'
 Plug 'morhetz/gruvbox'
 
 Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
 Plug 'AndrewRadev/splitjoin.vim'
 call plug#end()
 
 " ========== config ==========
 set nocompatible
-filetype off
 filetype plugin indent on
 
 set ttyfast
@@ -124,6 +124,10 @@ imap jk <Esc>
 " stupid q: window
 map q: :q
 
+" snippets
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
+let g:UltiSnipsEditSplit='vertical'
 " ========== vim-go ==========
 let g:go_fmt_command = "goimports"
 
