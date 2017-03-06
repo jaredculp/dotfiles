@@ -131,11 +131,15 @@ nnoremap <leader>p :CtrlP<cr>
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
 let g:UltiSnipsEditSplit='vertical'
+
+" ========== ruby ==========
+autocmd BufNewFile,BufRead *.rb setlocal expandtab tabstop=2 shiftwidth=2
+autocmd FileType ruby nnoremap <leader>r :Dispatch rspec %<CR>
+
 " ========== vim-go ==========
 let g:go_fmt_command = "goimports"
 
 autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
-autocmd BufNewFile,BufRead *.rb setlocal expandtab tabstop=2 shiftwidth=2
 
 autocmd FileType go nmap <leader>r  <Plug>(go-run)
 autocmd FileType go nmap <leader>t  <Plug>(go-test)
