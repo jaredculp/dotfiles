@@ -1,11 +1,11 @@
 " ========== plugins ==========
 call plug#begin('~/.vim/plugged')
-Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-endwise'
 
 Plug 'rking/ag.vim'
 Plug 'ctrlpvim/ctrlp.vim'
