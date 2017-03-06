@@ -124,6 +124,9 @@ imap jk <Esc>
 " stupid q: window
 map q: :q
 
+" ctrlp
+nnoremap <leader>p :CtrlP<cr>
+
 " snippets
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
