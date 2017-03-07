@@ -4,6 +4,7 @@ zplug 'mafredri/zsh-async'
 zplug 'sindresorhus/pure'
 zplug 'zsh-users/zsh-syntax-highlighting'
 zplug 'zsh-users/zsh-completions'
+zplug 'plugins/vi-mode', from:oh-my-zsh
 
 if ! zplug check --verbose; then
   printf "Install? [y/N]: "
