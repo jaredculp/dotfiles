@@ -132,6 +132,14 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
 let g:UltiSnipsEditSplit='vertical'
 
+" ========== defaults ==========
+set expandtab
+set shiftwidth=2
+set tabstop=2
+
+" ========== shell ==========
+autocmd BufWrite *.sh :Dispatch shellcheck %
+
 " ========== ruby ==========
 autocmd BufNewFile,BufRead *.rb setlocal expandtab tabstop=2 shiftwidth=2
 autocmd FileType ruby nnoremap <leader>r :Dispatch rspec %<CR>
