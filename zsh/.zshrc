@@ -26,6 +26,8 @@ export GOBIN="$HOME/go/bin"
 export PATH="$GOBIN:$PATH"
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 
+[[ -f "$HOME/.zshrc.local" ]] && source "$HOME/.zshrc.local"
+
 # ========== colors ==========
 autoload -U colors
 export CLICOLOR=1
@@ -35,6 +37,10 @@ setopt autocd
 export EDITOR="vim"
 
 sz() { source $HOME/.zshrc }
+
+# ========== completion ==========
+# case insensitive (all), partial-word, substring
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 
 # ========== bindings ==========
 bindkey '^R' history-incremental-search-backward
