@@ -12,6 +12,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'raimondi/delimitmate'
+Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'itchyny/lightline.vim'
 Plug 'morhetz/gruvbox'
@@ -69,7 +70,7 @@ set viminfo='200
 set lazyredraw          " Wait to redraw
 
 " ========== colors ==========
-set background=light
+set background=dark
 set termguicolors
 colorscheme gruvbox
 let g:lightline = {
