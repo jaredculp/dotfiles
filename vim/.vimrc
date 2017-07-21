@@ -11,16 +11,13 @@ Plug 'rking/ag.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'raimondi/delimitmate'
 Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'itchyny/lightline.vim'
-Plug 'morhetz/gruvbox'
+Plug 'fatih/molokai'
+Plug 'airblade/vim-gitgutter'
 
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
-Plug 'AndrewRadev/splitjoin.vim'
 call plug#end()
 
 " ========== config ==========
@@ -72,9 +69,10 @@ set lazyredraw          " Wait to redraw
 " ========== colors ==========
 set background=dark
 set termguicolors
-colorscheme gruvbox
+"let g:rehash256 = 1
+"let g:molokai_original = 1
+colorscheme molokai
 let g:lightline = {
-  \ 'colorscheme': 'gruvbox',
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ],
   \             [ 'fugitive', 'filename' ] ]
@@ -122,16 +120,15 @@ map <C-l> <C-W>l
 " quickly exit insert mode
 imap jk <Esc>
 
+" move by visual line
+map j gj
+map k gk
+
 " stupid q: window
 map q: :q
 
 " ctrlp
 nnoremap <leader>p :CtrlP<cr>
-
-" snippets
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
-let g:UltiSnipsEditSplit='vertical'
 
 " ========== defaults ==========
 set expandtab
@@ -147,6 +144,11 @@ autocmd FileType ruby nnoremap <leader>r :Dispatch rspec %<CR>
 
 " ========== vim-go ==========
 let g:go_fmt_command = "goimports"
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
 
 autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
 
@@ -164,12 +166,5 @@ function! s:build_go_files()
 endfunction
 
 autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
-autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
-autocmd FileType go nmap <Leader>i <Plug>(go-info)
-let g:go_auto_type_info = 1
-
-" ========== delimitMate ==========
-let g:delimitMate_expand_cr = 1
-let g:delimitMate_expand_space = 1
 
 " vim: sw=2 sw=2 et
