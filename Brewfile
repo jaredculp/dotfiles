@@ -1,10 +1,9 @@
 tap 'caskroom/cask'
-tap 'choppsv1/term24'
 
 brew 'git'
-brew 'reattach-to-user-namespace'
+brew 'reattach-to-user-namespace', args: ['with-pbcopy-and-pbpaste']
 brew 'the_silver_searcher'
-brew 'choppsv1/term24/tmux'
+brew 'tmux'
 brew 'vim'
 brew 'zsh'
 brew 'zsh-completions'
