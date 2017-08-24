@@ -11,10 +11,7 @@ Plug 'rking/ag.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'christoomey/vim-tmux-navigator'
 
-Plug 'itchyny/lightline.vim'
-Plug 'fatih/molokai'
 Plug 'airblade/vim-gitgutter'
 
 Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
@@ -28,7 +25,6 @@ set ttyfast
 set ttymouse=xterm2
 set ttyscroll=3
 
-set laststatus=2
 set encoding=utf-8              " Set default encoding to UTF-8
 set autoread                    " Automatically reread changed files without asking me anything
 set autoindent
@@ -48,7 +44,6 @@ set autowrite                " Automatically save before :next, :make etc.
 set hidden
 set fileformats=unix,dos,mac " Prefer Unix over Windows over OS 9 formats
 set noshowmatch              " Do not show matching brackets by flickering
-set noshowmode               " We show the mode with airline or lightline
 set ignorecase               " Search case insensitive...
 set smartcase                " ... but not it begins with upper case
 set completeopt=menu,menuone
@@ -67,37 +62,10 @@ set viminfo='200
 set lazyredraw          " Wait to redraw
 
 " ========== colors ==========
-set background=dark
-set termguicolors
-"let g:rehash256 = 1
-"let g:molokai_original = 1
-colorscheme molokai
-let g:lightline = {
-  \ 'active': {
-  \   'left': [ [ 'mode', 'paste' ],
-  \             [ 'fugitive', 'filename' ] ]
-  \ },
-  \ 'component_function': {
-  \   'modified': 'LightLineModified',
-  \   'fugitive': 'LightLineFugitive'
-  \ }
-  \ }
-
-function! LightLineModified()
-  if &filetype == "help"
-    return ""
-  elseif &modified
-    return "+"
-  elseif &modifiable
-    return ""
-  else
-    return ""
-  endif
-endfunction
-
-function! LightLineFugitive()
-  return exists('*fugitive#head') ? fugitive#head() : ''
-endfunction
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
 
 " ========== leader ==========
 let mapleader = ","
