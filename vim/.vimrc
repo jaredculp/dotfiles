@@ -27,7 +27,6 @@ set noswapfile
 set nobackup
 set autowrite
 set clipboard^=unnamed,unnamedplus
-set expandtab
 
 " tabs
 set tabstop=2
