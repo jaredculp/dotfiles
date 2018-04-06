@@ -7,5 +7,9 @@ java_version() {
 
 java_env() {
   j="$(java_version)"
-  [[ ! -z "$j" ]] && echo "Using java $j" && export JAVA_HOME="$(/usr/libexec/java_home -v "$j")"
+  if [[ ! -z "$j" ]]; then
+    echo "Using java $j"
+    JAVA_HOME="$(/usr/libexec/java_home -v "$j")"
+    export JAVA_HOME
+  fi
 }

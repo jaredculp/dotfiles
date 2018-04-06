@@ -14,6 +14,11 @@ Clone the repository:
 git clone http://github.com/jaredculp/dotfiles.git ~/.dotfiles
 ```
 
+Run tests:
+```
+./test.sh
+```
+
 And then install:
 ```
 stow $dir

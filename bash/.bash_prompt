@@ -1,8 +1,10 @@
+#!/bin/bash
+
 GREEN=$(tput setaf 2)
 NORM=$(tput sgr0)
 
-GIT_PS1_SHOWDIRTYSTATE="true"
-GIT_PS1_SHOWUNTRACKEDFILES="true"
-GIT_PS1_SHOWCOLORHINTS="true"
-GIT_PS1_SHOWUPSTREAM="auto"
-PROMPT_COMMAND='__git_ps1 "\n\W" "\n${GREEN}\$${NORM} "'
+export GIT_PS1_SHOWDIRTYSTATE="true"
+export GIT_PS1_SHOWUNTRACKEDFILES="true"
+export GIT_PS1_SHOWCOLORHINTS="true"
+export GIT_PS1_SHOWUPSTREAM="auto"
+export PROMPT_COMMAND='__git_ps1 "\n\W" "\n${GREEN}\$${NORM} "'

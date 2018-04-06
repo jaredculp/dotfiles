@@ -1,5 +1,10 @@
+#!/bin/bash
+
 for file in ~/.{bash_prompt,bash_local}; do
-  [ -r "$file" ] && [ -f "$file" ] && source "$file";
+  if [[ -r "$file" ]] && [[ -f "$file" ]]; then
+    # shellcheck source=/dev/null
+    source "$file";
+  fi
 done
 unset file;
 
@@ -14,7 +19,9 @@ export EDITOR="vim"
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
-[ -f "/usr/local/etc/bash_completion" ] && source "/usr/local/etc/bash_completion"
-unset brew_home;
+if [[ -f /usr/local/etc/bash_completion ]]; then
+  # shellcheck source=/dev/null
+  source "/usr/local/etc/bash_completion"
+fi
 
 eval "$(direnv hook bash)"
