@@ -1,0 +1,11 @@
+#!/bin/bash
+set -e
+
+java_version() {
+  [[ -f "$PWD/.java-version" ]] && cat "$PWD/.java-version"
+}
+
+java_env() {
+  j="$(java_version)"
+  [[ ! -z "$j" ]] && echo "Using java $j" && export JAVA_HOME="$(/usr/libexec/java_home -v "$j")"
+}
