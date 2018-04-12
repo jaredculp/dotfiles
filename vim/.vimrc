@@ -6,7 +6,6 @@ endif
 
 call plug#begin()
 Plug 'fatih/molokai'
-Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-fugitive'
 call plug#end()
 
@@ -34,6 +33,10 @@ set expandtab
 colorscheme molokai
 
 nnoremap ,f :find *
+
+" netrw
+nnoremap - :Explore<CR>
+let g:netrw_banner=0
 
 highlight User1 ctermbg=8
 highlight User2 ctermbg=7 ctermfg=0
