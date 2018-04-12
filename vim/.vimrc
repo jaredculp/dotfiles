@@ -23,8 +23,7 @@ set path=.,**
 set shiftround
 set wildmenu
 set wildignore+=*.class
-set wildignore+=target/*
-
+set wildignore+=target/* 
 set clipboard^=unnamed
 
 set tabstop=2
@@ -43,19 +42,13 @@ highlight User4 ctermbg=6 ctermfg=0
 highlight User5 ctermbg=5
 highlight User6 ctermbg=3 ctermfg=0
 
-let s:modes ={
-    \ 'n'  : ['%3*', 'NORMAL'],
-    \ 'i'  : ['%4*', 'INSERT'],
-    \ 'v'  : ['%5*', 'VISUAL'],
-    \ 'r'  : ['%6*', 'REPLACE'],
-    \ }
-
-function! ModeColor() abort
-  return get(s:modes, tolower(mode()), '%*')[0]
-endfunction
-
 function! CurrentMode() abort
-  return ' ' . get(s:modes, tolower(mode()), '-')[1] . ' '
+  return {
+    \ 'n': '%3* NORMAL ',
+    \ 'i': '%4* INSERT ',
+    \ 'v': '%5* VISUAL ',
+    \ 'r': '%6* RPLACE ',
+    \ }[tolower(mode())]
 endfunction
 
 function! GitBranch()
@@ -69,7 +62,6 @@ endfunction
 
 function! Statusline()
   let status=""
-  let status.=ModeColor()
   let status.=CurrentMode()
   let status.="%1* %f "
   let status.="%2* %m "
