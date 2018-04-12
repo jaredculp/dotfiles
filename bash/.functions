@@ -1,0 +1,19 @@
+#!/bin/bash
+
+function wttr() {
+  while getopts ":v" opt; do
+    case $opt in
+      v)
+        VERBOSE_WEATHER=true
+        ;;
+      *)
+        ;;
+    esac
+  done
+
+  if [ -z ${VERBOSE_WEATHER} ]; then
+    curl -s "wttr.in/19103" | head -n6
+  else
+    curl -s "wttr.in/19103"
+  fi
+}

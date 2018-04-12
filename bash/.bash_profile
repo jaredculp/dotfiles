@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for file in ~/.{bash_prompt,bash_local,exports}; do
+for file in ~/.{bash_prompt,bash_local,exports,functions}; do
   if [[ -r "$file" ]] && [[ -f "$file" ]]; then
     # shellcheck source=/dev/null
     source "$file";
