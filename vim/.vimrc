@@ -45,13 +45,15 @@ highlight User4 ctermbg=6 ctermfg=0
 highlight User5 ctermbg=5
 highlight User6 ctermbg=3 ctermfg=0
 
-function! CurrentMode() abort
-  return {
+let s:modes = {
     \ 'n': '%3* NORMAL ',
     \ 'i': '%4* INSERT ',
     \ 'v': '%5* VISUAL ',
     \ 'r': '%6* RPLACE ',
-    \ }[tolower(mode())]
+    \ }
+
+function! CurrentMode() abort
+  return get(s:modes, tolower(mode()), '%* ------ ')
 endfunction
 
 function! GitBranch()
@@ -70,7 +72,7 @@ function! Statusline()
   let status.="%2* %m "
   let status.="%= "
   let status.=GitBranch()
-  let status.="%y %1* %04.l:%03.c "
+  let status.="%y %1* %04.l:%03.c %P "
 
   return status
 endfunction
