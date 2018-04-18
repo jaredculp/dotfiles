@@ -25,6 +25,7 @@
   a = add
   aa = add .
   b = branch
+  bd = branch -D
   c = commit
   cfh = commit --fixup HEAD
   cm = commit -m
