@@ -30,20 +30,26 @@ set softtabstop=2
 set shiftwidth=2
 set expandtab
 
-colorscheme molokai
-
 nnoremap ,f :find *
 
 " netrw
 nnoremap - :Explore<CR>
 let g:netrw_banner=0
 
-highlight User1 ctermbg=8
-highlight User2 ctermbg=7 ctermfg=0
-highlight User3 ctermbg=2 ctermfg=0
-highlight User4 ctermbg=6 ctermfg=0
-highlight User5 ctermbg=5
-highlight User6 ctermbg=3 ctermfg=0
+function! UserHighlights() abort
+  highlight User1 ctermbg=8
+  highlight User2 ctermbg=7 ctermfg=0
+  highlight User3 ctermbg=2 ctermfg=0
+  highlight User4 ctermbg=6 ctermfg=0
+  highlight User5 ctermbg=5
+  highlight User6 ctermbg=3 ctermfg=0
+endfunction
+
+augroup MyColors
+  autocmd!
+  autocmd ColorScheme * call UserHighlights()
+augroup END
+colorscheme molokai
 
 let s:modes = {
     \ 'n': '%3* NORMAL ',
