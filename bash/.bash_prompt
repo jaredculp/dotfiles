@@ -1,10 +1,10 @@
 #!/bin/bash
 
-GREEN=$(tput setaf 2)
-NORM=$(tput sgr0)
+GREEN="\[$(tput setaf 2)\]"
+RESET="\[$(tput sgr0)\]"
 
 export GIT_PS1_SHOWDIRTYSTATE="true"
 export GIT_PS1_SHOWUNTRACKEDFILES="true"
 export GIT_PS1_SHOWCOLORHINTS="true"
 export GIT_PS1_SHOWUPSTREAM="auto"
-export PROMPT_COMMAND='__git_ps1 "\n\W" "\n\[${GREEN}\$${NORM}\] "'
+export PROMPT_COMMAND='__git_ps1 "\n\W" "\n${GREEN}\$${RESET} "'
