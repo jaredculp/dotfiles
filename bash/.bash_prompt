@@ -1,10 +1,11 @@
 #!/bin/bash
 
-GREEN="\[$(tput setaf 2)\]"
-RESET="\[$(tput sgr0)\]"
+GREEN="\\[$(tput setab 2)$(tput setaf 0)\\]"
+GREY="\\[$(tput setab 8)$(tput setaf 15)\\]"
+RESET="\\[$(tput sgr0)\\]"
 
 export GIT_PS1_SHOWDIRTYSTATE="true"
 export GIT_PS1_SHOWUNTRACKEDFILES="true"
 export GIT_PS1_SHOWCOLORHINTS="true"
 export GIT_PS1_SHOWUPSTREAM="auto"
-export PROMPT_COMMAND='__git_ps1 "\n\W" "\n${GREEN}\$${RESET} "'
+export PROMPT_COMMAND='__git_ps1 "${GREEN} \$ ${RESET}${GREY} \W ${RESET}" " "'
