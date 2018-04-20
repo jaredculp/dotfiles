@@ -38,7 +38,10 @@ augroup MyColors
   autocmd!
   autocmd ColorScheme * call UserHighlights()
 augroup END
-colorscheme molokai
+try
+  colorscheme molokai
+catch
+endtry
 
 let s:modes = {
     \ 'n': '%3* NORMAL ',
