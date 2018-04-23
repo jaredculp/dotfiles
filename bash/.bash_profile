@@ -21,5 +21,3 @@ for file in ~/.{bash_prompt,bash_local,exports,functions}; do
   fi
 done
 unset file;
-
-eval "$(direnv hook bash)"
