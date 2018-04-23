@@ -58,7 +58,7 @@ font:
     # style: Italic
 
   # Point size of the font
-  size: 14.0
+  size: 12.0
 
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
@@ -85,34 +85,33 @@ render_timer: false
 # and cursor.background colors, otherwise invert the colors of the cursor.
 custom_cursor_colors: false
 
-
-# Colors (Molokai)
+# colors (apprentice)
 colors:
   # Default colors
   primary:
-    background: '0x121212'
-    foreground: '0xbbbbbb'
+    background: '0x262626'
+    foreground: '0xbcbcbc'
 
   # Normal colors
   normal:
-    black:   '0x121212'
-    red:     '0xfa2573'
-    green:   '0x98e123'
-    yellow:  '0xdfd460'
-    blue:    '0x1080d0'
-    magenta: '0x8700ff'
-    cyan:    '0x43a8d0'
-    white:   '0xbbbbbb'
+    black:   '0x1c1c1c'
+    red:     '0xaf5f5f'
+    green:   '0x5f875f'
+    yellow:  '0x87875f'
+    blue:    '0x5f87af'
+    magenta: '0x5f5f87'
+    cyan:    '0x5f8787'
+    white:   '0x6c6c6c'
 
   # Bright colors
   bright:
-    black:   '0x555555'
-    red:     '0xf6669d'
-    green:   '0xb1e05f'
-    yellow:  '0xfff26d'
-    blue:    '0x00afff'
-    magenta: '0xaf87ff'
-    cyan:    '0x51ceff'
+    black:   '0x444444'
+    red:     '0xff8700'
+    green:   '0x87af87'
+    yellow:  '0xffffaf'
+    blue:    '0x8fafd7'
+    magenta: '0x8787af'
+    cyan:    '0x5fafaf'
     white:   '0xffffff'
 
 # Visual Bell

@@ -18,5 +18,5 @@ add_package() {
   fi
 }
 
-add_package fatih molokai
+add_package romainl Apprentice
 add_package tpope vim-fugitive

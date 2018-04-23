@@ -39,7 +39,7 @@ augroup MyColors
   autocmd ColorScheme * call UserHighlights()
 augroup END
 try
-  colorscheme molokai
+  colorscheme apprentice
 catch
 endtry
 
