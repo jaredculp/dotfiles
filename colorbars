@@ -1,20 +1,11 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 colors() {
-  printf %s '   '
-  for color in "$@"; do
-    tput setab ${color}
-    printf %s '   '
+  printf '\n'
+  for color in {0..7}; do
+    printf %s "$(tput setab $((color + 8)))    $(tput setab $color) $(tput sgr0) "
   done
-  tput sgr0
-  echo
+  printf '\n\n'
 }
 
-echo
-
-colors 8 9 10 11 12 13 14 15
-colors 8 9 10 11 12 13 14 15
-colors 8 9 10 11 12 13 14 15
-colors 0 1 2 3 4 5 6 7
-
-echo
+colors
