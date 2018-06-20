@@ -1,6 +1,0 @@
-#!/bin/sh
-
-export PATH="$HOME/bin:$HOME/go/bin:/usr/local/bin:$PATH"
-export EDITOR="vim"
-export CLICOLOR=1
-export LSCOLORS=ExFxCxDxBxegedabagacad
