@@ -32,3 +32,5 @@ export HISTCONTROL=ignoredups:erasedups
 
 # machine specific
 [[ -f "$HOME/.bash_local" ]] && source "$HOME/.bash_local"
+
+[[ -z "$TMUX" ]] && { tmux attach || exec tmux new-session; }
