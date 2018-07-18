@@ -2,7 +2,6 @@
 filetype plugin indent on
 syntax on
 
-" plugins
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -11,7 +10,6 @@ endif
 
 call plug#begin()
 Plug 'airblade/vim-gitgutter'
-Plug 'arcticicestudio/nord-vim'
 Plug 'romainl/apprentice'
 Plug 'junegunn/fzf'
 Plug 'tpope/vim-commentary'
@@ -29,16 +27,15 @@ set hidden
 set incsearch
 set laststatus=2
 set path=.,**
-set relativenumber
 set shiftround
 set shiftwidth=2
 set softtabstop=2
 set tabstop=2
-set wildignore+=*.class,target/*
 set wildmenu
 
 " mappings
 nnoremap ,f :FZF<cr>
+nnoremap ,b :ls<cr>:b<space>
 
 " colors
 colorscheme apprentice
