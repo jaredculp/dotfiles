@@ -1,9 +1,9 @@
-command: "$HOME/cmus-current"
+command: "$HOME/now-playing"
 
 refreshFrequency: 500
 
 render: (output) ->
-  "playing <span>#{output}</span>"
+  "#{output}"
 
 style: """
   -webkit-font-smoothing: antialiased

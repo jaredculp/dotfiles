@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+
+#
+# now-playing returns the current song and album from either cmus or spotify.
+# 
+
+set -e
+set -o pipefail
+
+CMUS_REMOTE=/usr/local/bin/cmus-remote
+SEPARATOR=•
+
+cmus_playing() {
+  $CMUS_REMOTE --raw status | grep "status" | cut -d ' ' -f2
+}
+
+cmus_info() {
+  $CMUS_REMOTE --raw status | grep "$1" | cut -d ' ' "-f3-"
+}
+
+spotify_playing() {
+  osascript <<EOF
+#!/usr/bin/env osascript 
+
+tell application "Spotify"
+  return player state
+end tell
+EOF
+}
+
+spotify_info() {
+  osascript <<EOF
+#!/usr/bin/env osascript 
+
+tell application "Spotify"
+  return current track's $1
+end tell
+EOF
+}
+
+if [[ $(cmus_playing) == "playing" ]]; then
+  track=$(cmus_info "title")
+  album=$(cmus_info "album")
+  player="cmus"
+elif [[ $(spotify_playing) == "playing" ]]; then
+  track=$(spotify_info "name")
+  album=$(spotify_info "album")
+  player="spotify"
+else
+  exit
+fi
+
+echo -n "${player} <span>${track} ${SEPARATOR} ${album}</span>"
