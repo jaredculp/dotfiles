@@ -1,5 +1,5 @@
 THIS_DIR := $(shell pwd)
-EXCLUDED_DOTFILES := .git README.md colorbars zenbar
+EXCLUDED_DOTFILES := .git README.md colorbars zenbar bin
 DOTFILES := $(addprefix ~/, $(filter-out $(EXCLUDED_DOTFILES), $(wildcard .*)))
 
 .DEFAULT_GOAL = all
