@@ -1,16 +1,16 @@
 THIS_DIR := $(shell pwd)
-EXCLUDED_DOTFILES := .git README.md colorbars
+EXCLUDED_DOTFILES := .git README.md colorbars zenbar
 DOTFILES := $(addprefix ~/, $(filter-out $(EXCLUDED_DOTFILES), $(wildcard .*)))
 
 .DEFAULT_GOAL = all
-.PHONY = dotfiles macos brew cask bash tmux myvim
+.PHONY = dotfiles macos brew cask bash tmux myvim wm
 
 all: dotfiles macos brew cask bash myvim
 
 dotfiles: $(DOTFILES)
 
 ~/.%:
-	cd ~ && ln -sv $(THIS_DIR)/$(notdir $@) $@
+	cd ~ && ln -sfv $(THIS_DIR)/$(notdir $@) $@
 
 macos:
 	$(shell ./.macos)
@@ -24,9 +24,20 @@ brew: /usr/local/bin/brew
 	brew install jq
 	brew install the_silver_searcher
 	brew install tmux
+	brew install cmus
+	brew install htop
+	brew install neofetch
 
 /usr/local/bin/brew:
 	ruby -e "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+wm:
+	brew install koekeishiya/formulae/skhd || true
+	brew tap crisidev/homebrew-chunkwm
+	brew install chunkwm
+	brew cask install ubersicht
+	ln -sfv $(THIS_DIR)/zenbar "$(HOME)/Library/Application Support/Übersicht/widgets"
+	chown $(whoami):$(whoami) ~/.chunkwmrc ~/.skhdrc
 
 cask:
 	brew cask install 1password6
@@ -51,3 +62,9 @@ bash:
 myvim: ~/.vimrc
 	brew install vim --with-override-system-vi
 	vim +PlugInstall +qall
+
+work:
+	brew install ruby-install
+	brew install chruby
+	brew install mysql
+	brew install maven
