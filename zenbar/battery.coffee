@@ -6,11 +6,12 @@ render: (output) ->
   "bat <span>#{output}</span>"
 
 style: """
-  -webkit-font-smoothing: antialiased
-  font: 9px Menlo
-  top: 16px
+  top: 18px
   right: 30px
-  color: #eee
+  font: 9px Menlo
+  color: #d65d0e
+  font-weight: bold
   span
-    color: #aaa
+    color: #ebdbb2
+    font-weight: normal
 """

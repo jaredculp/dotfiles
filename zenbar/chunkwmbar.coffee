@@ -6,11 +6,12 @@ render: (output) ->
   "space <span>#{output}</span>"
 
 style: """
-  -webkit-font-smoothing: antialiased
-  font: 9px Menlo
-  color: #eee
-  top: 16px
+  top: 18px
   left: 30px
+  font: 9px Menlo
+  color: #cc241d
+  font-weight: bold
   span
-    color: #aaa
+    color: #ebdbb2
+    font-weight: normal !important
 """

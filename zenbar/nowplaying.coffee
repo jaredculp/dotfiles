@@ -6,12 +6,13 @@ render: (output) ->
   "#{output}"
 
 style: """
-  -webkit-font-smoothing: antialiased
-  font: 9px Menlo
-  color: #eee
-  top: 16px
+  top: 18px
   width: 100%
   text-align: center
+  font: 9px Menlo
+  color: #d79921
+  font-weight: bold
   span
-    color: #aaa
+    color: #ebdbb2
+    font-weight: normal !important
 """

@@ -6,12 +6,12 @@ render: (output) ->
   "time <span>#{output}</span>"
 
 style: """
-  -webkit-font-smoothing: antialiased
-  color: #eee
-  font: 9px Menlo
-  top: 16px
+  top: 18px
   left: 90px
-
+  font: 9px Menlo
+  color: #98971a
+  font-weight: bold
   span
-    color: #aaa
+    color: #ebdbb2
+    font-weight: normal
 """

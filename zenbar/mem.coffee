@@ -6,11 +6,12 @@ render: (output) ->
   "mem <span>#{output}</span>"
 
 style: """
-  -webkit-font-smoothing: antialiased
-  color: #eee
-  font: 9px Menlo
   right: 90px
-  top: 16px
+  top: 18px
+  font: 9px Menlo
+  color: #689d6a
+  font-weight: bold
   span
-    color: #aaa
+    color: #ebdbb2
+    font-weight: normal
 """
