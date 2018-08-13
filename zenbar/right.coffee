@@ -1,14 +1,13 @@
-command: "$HOME/now-playing"
+command: "date +\"%a %H:%M\""
 
-refreshFrequency: 500
+refreshFrequency: 1000
 
 render: (output) ->
   "#{output}"
 
 style: """
   top: 17px
-  width: 100%
-  text-align: center
+  right: 20px
   font: 9px Menlo
   color: #D8DEE9
 """
