@@ -17,6 +17,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
 Plug 'morhetz/gruvbox'
+Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
 " basic settings
@@ -46,4 +47,4 @@ nnoremap ,b :ls<cr>:b<space>
 " right: git-branch filetype line column position
 set statusline=%f\ %{fugitive#head()}\%m%=\%y\ %04.l:%03.c\ %P
 
-colo gruvbox
+colo nord
