@@ -1,6 +1,9 @@
 # enter fullscreen mode for the focused container
 alt - f : chunkc tiling::window --toggle fullscreen
 
+# open terminal
+cmd - return : open -na /Applications/Utilities/Terminal.app
+
 # change layout of desktop
 alt - e : chunkc tiling::desktop --layout bsp
 alt - s : chunkc tiling::desktop --layout monocle
