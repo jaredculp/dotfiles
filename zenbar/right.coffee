@@ -6,8 +6,8 @@ render: (output) ->
   "#{output}"
 
 style: """
-  top: 17px
+  top: 16px
   right: 20px
-  font: 9px Menlo
+  font: 12px Ubuntu Mono
   color: #D8DEE9
 """

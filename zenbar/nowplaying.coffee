@@ -6,9 +6,9 @@ render: (output) ->
   "#{output}"
 
 style: """
-  top: 17px
+  top: 16px
   width: 100%
   text-align: center
-  font: 9px Menlo
+  font: 12px Ubuntu Mono
   color: #D8DEE9
 """
