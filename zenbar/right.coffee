@@ -1,4 +1,4 @@
-command: "date +\"%a %H:%M\""
+command: "$HOME/.dotfiles/bin/bar-right"
 
 refreshFrequency: 1000
 
@@ -6,7 +6,7 @@ render: (output) ->
   "#{output}"
 
 style: """
-  top: 16px
+  top: 14px
   right: 20px
   font: 12px Ubuntu Mono
   color: #D8DEE9
