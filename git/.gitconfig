@@ -28,6 +28,7 @@
   bd = branch -D
   c = commit
   cfh = commit --fixup HEAD
+  cl = clone
   cm = commit -m
   cma = commit --amend
   co = checkout
@@ -57,3 +58,12 @@
 
 [url "git@github.com:"]
   insteadOf = https://github.com/
+
+[url "git@github.va.opower.it:outbound/"]
+  insteadOf = outbound:
+
+[url "git@github.va.opower.it:opower/"]
+  insteadOf = opower:
+
+[url "git@github.va.opower.it:eng-main/"]
+  insteadOf = eng-main:
